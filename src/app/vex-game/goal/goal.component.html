@@ -1,3 +1,16 @@
-<p>
-  goal works!
-</p>
+<div class="wrapper" 
+[ngClass] = "{
+  redOwned:ownedBy==='red',
+  blueOwned:ownedBy==='blue',
+  unownedGoal:ownedBy===null
+} ">
+  <ion-button (click) = "setBlueOwned()" class="north" size="default" shape="round">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-button>
+  <ion-button (click) = "setRedOwned()" class="south" color="danger" size="default" shape="round">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-button>
+  <ion-button (click) = "setUnowned()" class="east" color="medium" size="default" shape="round">
+    <ion-icon name="close-outline"></ion-icon>
+  </ion-button>
+</div>
