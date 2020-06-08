@@ -1,32 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output} from '@angular/core';
+
+type alliances = "red"|"blue"|"none";
 
 @Component({
-  selector: 'app-goal',
+  selector: 'vex-goal',
   templateUrl: './goal.component.html',
   styleUrls: ['./goal.component.scss'],
 })
 export class GoalComponent implements OnInit {
-  ownedBy:"red"|"blue"|null;
+
+  private _ownedBy:alliances;
+  get ownedBy(): alliances{
+    return this._ownedBy;
+  }
 
   constructor() { 
-    this.ownedBy = null;
+    this._ownedBy = "none";
   }
 
   ngOnInit() {}
 
+  setOwnedBy(newValue: alliances){
+    this._ownedBy = newValue;
+    console.log(`New value set to ${newValue}`);
+  }
+
   setRedOwned(){
-    console.log("Success Red");
-    this.ownedBy = "red";
+    this.setOwnedBy("red");
   }
 
   setBlueOwned(){
-    console.log("Success Blue");
-    this.ownedBy = "blue";
+    this.setOwnedBy("blue");
   }
 
   setUnowned(){
-    console.log("Success Unowned");
-    this.ownedBy = null;
+    this.setOwnedBy("none");
   }
 
 }
