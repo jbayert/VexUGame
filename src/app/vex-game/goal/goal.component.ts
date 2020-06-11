@@ -1,6 +1,6 @@
-import { Component, OnInit, Output} from '@angular/core';
-
-type alliances = "red"|"blue"|"none";
+import { Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
+import { Alliance } from '../VexGameManager/game-constants.model';
+import { SimpleGoal } from '../VexGameManager/field.model';
 
 @Component({
   selector: 'vex-goal',
@@ -9,32 +9,50 @@ type alliances = "red"|"blue"|"none";
 })
 export class GoalComponent implements OnInit {
 
-  private _ownedBy:alliances;
-  get ownedBy(): alliances{
-    return this._ownedBy;
+  _goal: SimpleGoal;
+  @Input()
+  set goal(newGoal: SimpleGoal){
+    if(newGoal){
+      this._goal = newGoal;
+    }
   }
 
-  constructor() { 
-    this._ownedBy = "none";
+  @Output() 
+  buttonPressed = new EventEmitter()
+
+  constructor() {
+    this._goal = {
+      ownedBy:"none",
+      position:{row:0,column:0},
+      ballsScored:["none","none","none"]
+    }
   }
 
   ngOnInit() {}
 
-  setOwnedBy(newValue: alliances){
-    this._ownedBy = newValue;
-    console.log(`New value set to ${newValue}`);
+  addBall(newAlliance: "red"|"blue"){
+    this.buttonPressed.emit({
+      change: "add",
+      alliance:newAlliance,
+      position:this._goal.position,
+    })
+    console.log(`Value sent to add ball to ${newAlliance} to row ${this._goal.position.row}, column ${this._goal.position.column}`);
   }
 
   setRedOwned(){
-    this.setOwnedBy("red");
+    this.addBall("red");
   }
 
   setBlueOwned(){
-    this.setOwnedBy("blue");
+    this.addBall("blue");
   }
 
   setUnowned(){
-    this.setOwnedBy("none");
+    this.buttonPressed.emit({
+      change: "remove",
+      position:this._goal.position,
+    })
+    console.log(`Value sent to remove ball from row ${this._goal.position.row}, column ${this._goal.position.column}`);
   }
 
 }

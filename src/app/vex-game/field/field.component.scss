@@ -1,0 +1,41 @@
+.field-wrapper {
+    display: grid;
+    width: 600px; 
+    height: 600px;
+    grid-template-columns: 33% 34% 33%;
+    grid-template-rows: 33% 34% 33%;
+    grid-gap: 3%;
+    padding: 2%;
+    justify-content: space-between;
+    position:relative;
+}
+
+.col0 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.col1 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.col2 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.row0 {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.row1 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.row2 {
+  grid-row-start: 3;
+  grid-row-end: 4;
+}

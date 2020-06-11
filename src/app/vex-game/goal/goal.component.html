@@ -1,16 +1,34 @@
-<div class="wrapper" 
-[ngClass] = "{
-  redOwned:ownedBy==='red',
-  blueOwned:ownedBy==='blue',
-  unownedGoal:ownedBy==='none'
-} ">
-  <ion-button (click) = "setBlueOwned()" class="north" size="default" shape="round">
+<div class="goal-wrapper" >
+  <div class = "west ballContainer">
+    <div class = "ball" [ngClass] = "{
+      redBall:this._goal.ballsScored[2]==='red',
+      blueBall:this._goal.ballsScored[2]==='blue',
+      ballHidden:this._goal.ballsScored[2]==='none'
+    }"></div>
+    <div class = "ball" [ngClass] = "{
+      redBall:this._goal.ballsScored[1]==='red',
+      blueBall:this._goal.ballsScored[1]==='blue',
+      ballHidden:this._goal.ballsScored[1]==='none'
+    }"></div>
+    <div class = "ball" [ngClass] = "{
+      redBall:this._goal.ballsScored[0]==='red',
+      blueBall:this._goal.ballsScored[0]==='blue',
+      ballHidden:this._goal.ballsScored[0]==='none'
+    }"></div>
+  </div>
+  <ion-button (click) = "setBlueOwned()" class="north" size="small" shape="round">
     <ion-icon name="add-outline"></ion-icon>
   </ion-button>
-  <ion-button (click) = "setRedOwned()" class="south" color="danger" size="default" shape="round">
+  <ion-button (click) = "setRedOwned()" class="east" color="danger" size="small" shape="round">
     <ion-icon name="add-outline"></ion-icon>
   </ion-button>
-  <ion-button (click) = "setUnowned()" class="east" color="medium" size="default" shape="round">
+  <ion-button (click) = "setUnowned()" class="south" color="medium" size="small" shape="round">
     <ion-icon name="close-outline"></ion-icon>
   </ion-button>
+  <div class="center owned"
+  [ngClass] = "{
+    redOwned:this._goal.ownedBy==='red',
+    blueOwned:this._goal.ownedBy==='blue',
+    unownedGoal:this._goal.ownedBy==='none'
+  }"></div>
 </div>

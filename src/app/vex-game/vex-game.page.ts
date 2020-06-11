@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
+import { VexGameManager } from './VexGameManager/vex-game-manager';
+import { Field,SimpleGoal } from './VexGameManager/field.model';
 
 @Component({
   selector: 'app-vex-game',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VexGamePage implements OnInit {
 
-  constructor() { }
+  vexGame:VexGameManager;
+  vexField:Field;
 
-  ngOnInit() {
+  constructor(private changeDetectorRef:ChangeDetectorRef) {
+    this.vexGame = new VexGameManager();
+
   }
 
+  ngOnInit() {
+    var subscriber = this.vexGame.getChangeSubscriber();
+    subscriber.subscribe((event)=>{
+      this.vexField = event
+      console.log(event);
+      this.changeDetectorRef.detectChanges();
+    })
+  }
+
+  newEvent(event){
+    this.vexGame.handleEvent(event);
+  }
 }

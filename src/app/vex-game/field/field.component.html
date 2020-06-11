@@ -1,3 +1,11 @@
-
-  <vex-goal (ownedBy) = goalOwnedBy > </vex-goal>
-  <h1>{{goalOwnedBy}}</h1>
+<div class="field-wrapper">
+  <vex-goal class = "row0 col0" [goal] = this.goals[0][0] (buttonPressed) = "newEvent($event)"> </vex-goal>
+  <vex-goal class = "row0 col1" [goal] = this.goals[0][1] (buttonPressed) = "newEvent($event)"> </vex-goal>
+  <vex-goal class = "row0 col2" [goal] = this.goals[0][2] (buttonPressed) = "newEvent($event)"> </vex-goal>
+  <vex-goal class = "row1 col0" [goal] = this.goals[1][0] (buttonPressed) = "newEvent($event)"> </vex-goal>
+  <vex-goal class = "row1 col1" [goal] = this.goals[1][1] (buttonPressed) = "newEvent($event)"> </vex-goal>
+  <vex-goal class = "row1 col2" [goal] = this.goals[1][2] (buttonPressed) = "newEvent($event)"> </vex-goal>
+  <vex-goal class = "row2 col0" [goal] = this.goals[2][0] (buttonPressed) = "newEvent($event)"> </vex-goal>
+  <vex-goal class = "row2 col1" [goal] = this.goals[2][1] (buttonPressed) = "newEvent($event)"> </vex-goal>
+  <vex-goal class = "row2 col2" [goal] = this.goals[2][2] (buttonPressed) = "newEvent($event)"> </vex-goal>
+</div>

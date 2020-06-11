@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { SimpleGoal } from '../VexGameManager/field.model';
 
 @Component({
   selector: 'vex-field',
@@ -7,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FieldComponent implements OnInit {
 
-  goalOwnedBy;
+  goalOwnedBy = "blue";
+  ballsScoredGoal1 = ["blue","blue","none"];
+  myPosition = {
+    row:0,
+    column:0
+  }
 
-  constructor() { }
+  @Input()
+  goals:SimpleGoal[][];
+
+  @Output()
+  newEventOutput:EventEmitter<any> = new EventEmitter<any>() 
+
+  constructor() { 
+  }
 
   ngOnInit() {}
+
+  newEvent(event){
+    this.newEventOutput.emit(event);
+    console.log(this.goals);
+  }
 
 }
