@@ -11,6 +11,7 @@ import { VexGamePage } from './vex-game.page';
 
 import { GoalComponent } from './goal/goal.component';
 import { FieldComponent } from './field/field.component';
+import { ScoreBoardComponent } from './score-board/score-board.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { FieldComponent } from './field/field.component';
   declarations: [
     VexGamePage,
     GoalComponent,
-    FieldComponent
+    FieldComponent,
+    ScoreBoardComponent
   ]
 })
 export class VexGamePageModule {}

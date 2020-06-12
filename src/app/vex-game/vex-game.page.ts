@@ -26,7 +26,8 @@ export class VexGamePage implements OnInit {
     })
   }
 
-  newEvent(event){
+  handleNewEvent(event){
+    console.log(event);
     this.vexGame.handleEvent(event);
   }
 }

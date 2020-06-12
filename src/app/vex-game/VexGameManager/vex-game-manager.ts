@@ -207,7 +207,7 @@ export class VexGameManager {
         //Calculate blue Score
         let blueScore = ballsScored.blue + tempConnectedRows.blueScore;
 
-        let blueAutoBonus = (this._autonomousWinner === "red") ? AUTONOMOUS_BONUS : 0
+        let blueAutoBonus = (this._autonomousWinner === "blue") ? AUTONOMOUS_BONUS : 0
         blueScore += blueAutoBonus;
 
         let blueWinPoint = (this._blueWinPoint) ? WIN_POINT : 0;
@@ -300,6 +300,14 @@ export class VexGameManager {
             }
             case ("remove"):{
                 this.removeBall(event.position);
+                break;
+            }
+            case ("updateWinPoint"):{
+                this.setWinPoint(event.alliance,event.set);
+                break;
+            }
+            case ("setAutoWinner"):{
+                this.setAutonomousWinner(event.alliance);
                 break;
             }
             default:{

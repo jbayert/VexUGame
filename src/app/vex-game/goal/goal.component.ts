@@ -18,7 +18,7 @@ export class GoalComponent implements OnInit {
   }
 
   @Output() 
-  buttonPressed = new EventEmitter()
+  newEvent = new EventEmitter()
 
   constructor() {
     this._goal = {
@@ -31,7 +31,7 @@ export class GoalComponent implements OnInit {
   ngOnInit() {}
 
   addBall(newAlliance: "red"|"blue"){
-    this.buttonPressed.emit({
+    this.newEvent.emit({
       change: "add",
       alliance:newAlliance,
       position:this._goal.position,
@@ -48,7 +48,7 @@ export class GoalComponent implements OnInit {
   }
 
   setUnowned(){
-    this.buttonPressed.emit({
+    this.newEvent.emit({
       change: "remove",
       position:this._goal.position,
     })

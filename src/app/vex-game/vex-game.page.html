@@ -8,9 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <vex-field (newEventOutput) = "newEvent($event)" [goals] = "this.vexField.goals"></vex-field>
+  <vex-field (newEvent) = "handleNewEvent($event)" [goals] = "this.vexField.goals"></vex-field>
 </ion-content>
 
-<ion-footer>
-  Test
-</ion-footer>
+<app-score-board (newEvent) = "handleNewEvent($event)" [gameStats]="vexField.stats"></app-score-board>

@@ -1,0 +1,68 @@
+ion-grid {
+    display: flex;
+    justify-content: center;
+}
+
+.redAutoBtn {
+    --background-hover: red;
+    --border-color: red;
+    --color-checked: red;
+}
+
+.noneAutoBtn {
+    --background-hover: #000000;
+    --border-color: #000000;
+    --color-checked: #000000;
+}
+
+.blueAutoBtn {
+    --background-hover: #002cf0;
+    --border-color: #002cf0;
+    --color-checked: #002cf0;
+}
+
+ion-row {
+    display: flex;
+    justify-content: center;
+}
+
+.score {
+    font-size: 40px;
+}
+
+.score-red {
+    color: red;
+}
+
+.score-blue {
+    color: blue;
+}
+
+.winPointText {
+    text-align: center;
+    font-size: 12px;
+}
+
+.winPointText-red {
+    color: red;
+}
+
+.winPointText-blue {
+    color: blue;
+}
+
+.autoText {
+    font-size: 16px;
+}
+
+.toggle-blue {
+    --background-checked: rgb(168, 168, 255);
+
+    --handle-background-checked: blue;
+}
+
+.toggle-red {
+    --background-checked: #fca4a4;
+
+    --handle-background-checked: red;
+}

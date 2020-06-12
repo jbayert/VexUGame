@@ -19,15 +19,15 @@ export class FieldComponent implements OnInit {
   goals:SimpleGoal[][];
 
   @Output()
-  newEventOutput:EventEmitter<any> = new EventEmitter<any>() 
+  newEvent:EventEmitter<any> = new EventEmitter<any>() 
 
   constructor() { 
   }
 
   ngOnInit() {}
 
-  newEvent(event){
-    this.newEventOutput.emit(event);
+  handleNewEvent(event){
+    this.newEvent.emit(event);
     console.log(this.goals);
   }
 
