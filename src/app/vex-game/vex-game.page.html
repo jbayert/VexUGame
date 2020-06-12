@@ -9,6 +9,9 @@
 
 <ion-content>
   <vex-field (newEvent) = "handleNewEvent($event)" [goals] = "this.vexField.goals"></vex-field>
+  <app-full-stats [gameStats]="vexField.stats"></app-full-stats>
 </ion-content>
 
-<app-score-board (newEvent) = "handleNewEvent($event)" [gameStats]="vexField.stats"></app-score-board>
+<ion-footer>
+  <app-score-board (newEvent) = "handleNewEvent($event)" [gameStats]="vexField.stats"></app-score-board>
+</ion-footer>

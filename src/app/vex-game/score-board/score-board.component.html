@@ -1,47 +1,45 @@
-<ion-footer>
-  <ion-grid>
-    <ion-row class="ion-align-items-end">
-      <ion-col class="score score-red">
-        {{gameStats.red.score}}
-      </ion-col>
-      <ion-col>
-        <ion-row>
-          <ion-toggle class="toggle-red"  [(ngModel)]="redWinPoint"></ion-toggle>
-        </ion-row>
-        <ion-row class="winPointText winPointText-red">
-          Win Point
-        </ion-row>
-      </ion-col>
-      <ion-col>
-        <!-- Auto Winner Buttons-->
-        <ion-row>
-          <ion-segment (ionChange)="AutoWinnerChanged($event)" value = "none">
-            <ion-segment-button class="redAutoBtn" value="red">
-              <ion-label>Red</ion-label>
-            </ion-segment-button>
-            <ion-segment-button class = "noneAutoBtn" value="none">
-              <ion-label>None</ion-label>
-            </ion-segment-button>
-            <ion-segment-button class = "blueAutoBtn" value="blue">
-              <ion-label>Blue</ion-label>
-            </ion-segment-button>
-          </ion-segment>
-        </ion-row>
-        <ion-row class="autoText">
-          Autonomous Winner
-        </ion-row>
-      </ion-col>
-      <ion-col>
-        <ion-row>
-          <ion-toggle class="toggle-blue" [(ngModel)]="blueWinPoint"></ion-toggle>
-        </ion-row>
-        <ion-row class="winPointText winPointText-blue">
-          Win Point
-        </ion-row>
-      </ion-col>
-      <ion-col class="score score-blue">
-        {{gameStats.blue.score}}
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-footer>
+<ion-grid>
+  <ion-row class="ion-align-items-end">
+    <ion-col class="score score-red">
+      {{gameStats.red.score}}
+    </ion-col>
+    <ion-col>
+      <ion-row>
+        <ion-toggle class="toggle-red" [(ngModel)]="redWinPoint"></ion-toggle>
+      </ion-row>
+      <ion-row class="winPointText winPointText-red">
+        Win Point
+      </ion-row>
+    </ion-col>
+    <ion-col>
+      <!-- Auto Winner Buttons-->
+      <ion-row>
+        <ion-segment (ionChange)="AutoWinnerChanged($event)" value="none">
+          <ion-segment-button class="redAutoBtn" value="red">
+            <ion-label>Red</ion-label>
+          </ion-segment-button>
+          <ion-segment-button class="noneAutoBtn" value="none">
+            <ion-label>None</ion-label>
+          </ion-segment-button>
+          <ion-segment-button class="blueAutoBtn" value="blue">
+            <ion-label>Blue</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-row>
+      <ion-row class="autoText">
+        Autonomous Winner
+      </ion-row>
+    </ion-col>
+    <ion-col>
+      <ion-row>
+        <ion-toggle class="toggle-blue" [(ngModel)]="blueWinPoint"></ion-toggle>
+      </ion-row>
+      <ion-row class="winPointText winPointText-blue">
+        Win Point
+      </ion-row>
+    </ion-col>
+    <ion-col class="score score-blue">
+      {{gameStats.blue.score}}
+    </ion-col>
+  </ion-row>
+</ion-grid>
